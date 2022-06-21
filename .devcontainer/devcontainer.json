@@ -1,3 +1,7 @@
 {
-    "image": "hulk.appddiction1.com/acesfos/ant-compilerv2:1.8.0_321"      
+    "name": "terraform-c1",
+    "build": {
+        "dockerfile": "terraform-c1",
+        "context": "."
+    }
 }

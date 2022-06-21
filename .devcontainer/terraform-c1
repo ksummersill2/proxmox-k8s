@@ -1,0 +1,19 @@
+FROM alpine:3.15.4
+RUN apk add wget unzip tar
+# Install the Terraform CLI
+RUN wget https://releases.hashicorp.com/terraform/1.2.0/terraform_1.2.0_linux_amd64.zip \
+    && unzip terraform_1.2.0_linux_amd64.zip && mv terraform /usr/bin/terraform
+# YQ Yaml File Utility
+RUN wget https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_amd64.tar.gz && tar -xvf yq_linux_amd64.tar.gz \
+    && mv yq_linux_amd64 /usr/local/bin/yq
+# Install Package CLI utilized to build AMI Reference Points
+RUN wget https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_amd64.zip \
+    && unzip packer_1.8.0_linux_amd64.zip && mv packer /usr/bin/packer
+# Install Security Scanner for Terraform IaC
+RUN wget https://github.com/tenable/terrascan/releases/download/v1.15.1/terrascan_1.15.1_Linux_x86_64.tar.gz \
+    && tar -xvf terrascan_1.15.1_Linux_x86_64.tar.gz && mv terrascan /usr/bin/terrascan
+# Installing Kics
+RUN curl -sfL 'https://raw.githubusercontent.com/Checkmarx/kics/master/install.sh' | ash
+
+# Keep Alpine Running
+ENTRYPOINT ["tail","-f","/dev/null"]
