@@ -1,0 +1,90 @@
+2022/06/22 03:43:31 [INFO] Packer version: 1.8.0 [go1.17.8 linux amd64]
+2022/06/22 03:43:31 [TRACE] discovering plugins in /usr/bin
+2022/06/22 03:43:31 [TRACE] discovering plugins in /root/.config/packer/plugins
+2022/06/22 03:43:31 [TRACE] discovering plugins in .
+2022/06/22 03:43:31 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2022/06/22 03:43:31 [INFO] PACKER_CONFIG env var set; attempting to open config file: /root/.packerconfig
+2022/06/22 03:43:31 [WARN] Config file doesn't exist: /root/.packerconfig
+2022/06/22 03:43:31 [INFO] Setting cache directory: /root/.cache/packer
+2022/06/22 03:43:31 [TRACE] listing potential installations for "github.com/hashicorp/proxmox" that match ">= 1.0.8". plugingetter.ListInstallationsOptions{FromFolders:[]string{"/usr/bin/packer", ".", "/root/.config/packer/plugins"}, BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"linux", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc0001e2100)}}}}
+2022/06/22 03:43:31 [TRACE] Found the following "github.com/hashicorp/proxmox" installations: [{/root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 v1.0.8}]
+2022/06/22 03:43:31 [INFO] found external [-packer-default-plugin-name- proxmox-clone proxmox-iso] builders from proxmox plugin
+2022/06/22 03:43:31 [TRACE] validateValue: not active for vm-id, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for proxmox-url, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for proxmox-username, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for proxmox-token, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for proxmox-node-name, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for iso-location, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for iso-storage-pool, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for insecure, so skipping
+2022/06/22 03:43:31 [TRACE] validateValue: not active for ssh-username, so skipping
+2022/06/22 03:43:31 [TRACE] Starting internal plugin packer-builder-proxmox-iso
+2022/06/22 03:43:31 Starting plugin: /usr/bin/packer []string{"/usr/bin/packer", "plugin", "packer-builder-proxmox-iso"}
+2022/06/22 03:43:31 Waiting for RPC address for: /usr/bin/packer
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: [INFO] Packer version: 1.8.0 [go1.17.8 linux amd64]
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: /root/.packerconfig
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: [WARN] Config file doesn't exist: /root/.packerconfig
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: [INFO] Setting cache directory: /root/.cache/packer
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: args: []string{"packer-builder-proxmox-iso"}
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: Plugin address: unix /tmp/packer-plugin3621114453
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: Waiting for connection...
+2022/06/22 03:43:31 Received unix RPC address for /usr/bin/packer: addr is /tmp/packer-plugin3621114453
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: Serving a plugin connection...
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: OS not set, using default 'other'
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: Disk 0 cache mode not set, using default 'none'
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: SCSI controller not set, using default 'lsi'
+2022/06/22 03:43:31 ui: [1;32mubuntu-server.proxmox-iso.ubuntu-server: output will be in this color.[0m
+2022/06/22 03:43:31 ui: 
+2022/06/22 03:43:31 Build debug mode: false
+2022/06/22 03:43:31 Force build: false
+2022/06/22 03:43:31 On error: 
+2022/06/22 03:43:31 Waiting on builds to complete...
+2022/06/22 03:43:31 Starting build run: ubuntu-server.proxmox-iso.ubuntu-server
+2022/06/22 03:43:31 Running builder: 
+2022/06/22 03:43:31 [INFO] (telemetry) Starting builder proxmox-iso.ubuntu-server
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: using token auth
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: No URLs were provided to Step Download. Continuing...
+2022/06/22 03:43:31 ui: [1;32m==> ubuntu-server.proxmox-iso.ubuntu-server: Creating VM[0m
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: panic: runtime error: invalid memory address or nil pointer dereference
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: [signal SIGSEGV: segmentation violation code=0x1 addr=0x40 pc=0x301f9d5]
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: goroutine 40 [running]:
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/Telmate/proxmox-api-go/proxmox.(*Client).CreateQemuVm(0xc0005bdc20, {0xc0003e2998, 0x6}, 0x53abed9)
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/!telmate/proxmox-api-go@v0.0.0-20210804143723-a6998deceba2/proxmox/client.go:533 +0x135
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/Telmate/proxmox-api-go/proxmox.ConfigQemu.CreateVm({0x0, {0xc0003e29c0, 0x4}, {0x53abed9, 0x19}, {0x0, 0x0}, {0x0, 0x0}, {0x0, ...}, ...}, ...)
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/!telmate/proxmox-api-go@v0.0.0-20210804143723-a6998deceba2/proxmox/config_qemu.go:190 +0xf4f
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso.(*isoVMCreator).Create(_, _, {0x0, {0xc0003e29c0, 0x4}, {0x53abed9, 0x19}, {0x0, 0x0}, {0x0, ...}, ...}, ...)
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.4/builder/proxmox/iso/builder.go:64 +0xe7
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common.(*stepStartVM).Run(0xc001113cd0, {0x535dca7, 0xc000f037c0}, {0x5b1eb48, 0xc0010d5c80})
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.4/builder/proxmox/common/step_start_vm.go:92 +0x62c
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/hashicorp/packer-plugin-sdk/multistep.(*BasicRunner).Run(0xc0010d5d40, {0x5b1de60, 0xc000f037c0}, {0x5b1eb48, 0xc0010d5c80})
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-sdk@v0.2.12-0.20220216103740-f7d4bf877a45/multistep/basic_runner.go:70 +0x2fe
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common.(*Builder).Run(0xc000f86300, {0x5b1de60, 0xc000f037c0}, {0x5b2a040, 0xc0010d5c50}, {0x5a8ae60, 0xc0007253a0}, {0x5b1eb48, 0xc0010d5c80})
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.4/builder/proxmox/common/builder.go:90 +0xc63
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso.(*Builder).Run(0xc000a6b800, {0x5b1de60, 0xc000f037c0}, {0x5b2a040, 0xc0010d5c50}, {0x5a8ae60, 0xc0007253a0})
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.4/builder/proxmox/iso/builder.go:54 +0x3c5
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: github.com/hashicorp/packer-plugin-sdk/rpc.(*BuilderServer).Run(0xc0005b78c0, 0x578030, 0xc000578010)
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-sdk@v0.2.12-0.20220216103740-f7d4bf877a45/rpc/builder.go:117 +0x1e3
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: reflect.Value.call({0xc000160f00, 0xc0005ae2b0, 0x13}, {0x5352698, 0x4}, {0xc0007bcef8, 0x3, 0x3})
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/reflect/value.go:556 +0x845
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: reflect.Value.Call({0xc000160f00, 0xc0005ae2b0, 0xc0003e1400}, {0xc001095ef8, 0x3, 0x3})
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/reflect/value.go:339 +0xc5
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: net/rpc.(*service).call(0xc0005b7900, 0xc0003aae96, 0x0, 0xc0005a8820, 0xc0000efa80, 0x841405, {0x42c6be0, 0xc00057800c, 0x841386}, {0x4195300, ...}, ...)
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/net/rpc/server.go:377 +0x239
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: created by net/rpc.(*Server).ServeCodec
+2022/06/22 03:43:31 packer-builder-proxmox-iso plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/net/rpc/server.go:474 +0x405
+2022/06/22 03:43:31 [INFO] (telemetry) ending proxmox-iso.ubuntu-server
+2022/06/22 03:43:31 /usr/bin/packer: plugin process exited
+2022/06/22 03:43:31 ui error: [1;31mBuild 'ubuntu-server.proxmox-iso.ubuntu-server' errored after 36 milliseconds 827 microseconds: unexpected EOF[0m
+2022/06/22 03:43:31 ui: 
+==> Wait completed after 36 milliseconds 901 microseconds
+2022/06/22 03:43:31 machine readable: error-count []string{"1"}
+2022/06/22 03:43:31 ui error: 
+==> Some builds didn't complete successfully and had errors:
+2022/06/22 03:43:31 machine readable: ubuntu-server.proxmox-iso.ubuntu-server,error []string{"unexpected EOF"}
+2022/06/22 03:43:31 ui error: --> ubuntu-server.proxmox-iso.ubuntu-server: unexpected EOF
+2022/06/22 03:43:31 ui: 
+==> Builds finished but no artifacts were created.
+2022/06/22 03:43:31 [INFO] (telemetry) Finalizing.
+2022/06/22 03:43:31 waiting for all plugin processes to complete...
