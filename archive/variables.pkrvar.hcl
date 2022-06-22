@@ -7,3 +7,12 @@ iso-location        = "local:iso/ubuntu-22.04-live-server-amd64.iso"
 // iso-storage-pool    = "local"
 ssh-username        = "bb8"
 vm-id               = "401"
+vm-memory = 2048
+vm-sockets = "1"
+vm-cores = "1"
+storage-pool = "local"
+
+ssh-username = "bb8"
+ssh-password = "bb02131987"
+
+iso-file = "ubuntu-22.04-live-server-amd64.iso"

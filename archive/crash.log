@@ -1,0 +1,84 @@
+2022/06/22 15:07:21 [INFO] Packer version: 1.8.0 [go1.17.8 linux amd64]
+2022/06/22 15:07:21 [TRACE] discovering plugins in /usr/bin
+2022/06/22 15:07:21 [TRACE] discovering plugins in /root/.config/packer/plugins
+2022/06/22 15:07:21 [TRACE] discovering plugins in .
+2022/06/22 15:07:21 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2022/06/22 15:07:21 [INFO] PACKER_CONFIG env var set; attempting to open config file: /root/.packerconfig
+2022/06/22 15:07:21 [WARN] Config file doesn't exist: /root/.packerconfig
+2022/06/22 15:07:21 [INFO] Setting cache directory: /root/.cache/packer
+2022/06/22 15:07:21 [TRACE] listing potential installations for "github.com/hashicorp/proxmox" that match ">= 1.0.8". plugingetter.ListInstallationsOptions{FromFolders:[]string{"/usr/bin/packer", ".", "/root/.config/packer/plugins"}, BinaryInstallationOptions:plugingetter.BinaryInstallationOptions{APIVersionMajor:"5", APIVersionMinor:"0", OS:"linux", ARCH:"amd64", Ext:"", Checksummers:[]plugingetter.Checksummer{plugingetter.Checksummer{Type:"sha256", Hash:(*sha256.digest)(0xc000a2c380)}}}}
+2022/06/22 15:07:21 [TRACE] Found the following "github.com/hashicorp/proxmox" installations: [{/root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 v1.0.8}]
+2022/06/22 15:07:21 [INFO] found external [-packer-default-plugin-name- proxmox-clone proxmox-iso] builders from proxmox plugin
+2022/06/22 15:07:21 [TRACE] validateValue: not active for proxmox-username, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for proxmox-node-name, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for iso-location, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for ssh-username, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for vm-id, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for proxmox-url, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for proxmox-token, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for insecure, so skipping
+2022/06/22 15:07:21 [TRACE] validateValue: not active for iso-storage-pool, so skipping
+2022/06/22 15:07:21 [TRACE] Starting external plugin /root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 start builder -packer-default-plugin-name-
+2022/06/22 15:07:21 Starting plugin: /root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 []string{"/root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64", "start", "builder", "-packer-default-plugin-name-"}
+2022/06/22 15:07:21 Waiting for RPC address for: /root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 Plugin address: unix /tmp/packer-plugin3814928506
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 Waiting for connection...
+2022/06/22 15:07:21 Received unix RPC address for /root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64: addr is /tmp/packer-plugin3814928506
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 Serving a plugin connection...
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 [TRACE] starting builder -packer-default-plugin-name-
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 Disk 0 cache mode not set, using default 'none'
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 SCSI controller not set, using default 'lsi'
+2022/06/22 15:07:21 ui: [1;32mubuntu-server.proxmox.ubuntu-server: output will be in this color.[0m
+2022/06/22 15:07:21 ui: 
+2022/06/22 15:07:21 Build debug mode: false
+2022/06/22 15:07:21 Force build: false
+2022/06/22 15:07:21 On error: 
+2022/06/22 15:07:21 Waiting on builds to complete...
+2022/06/22 15:07:21 Starting build run: ubuntu-server.proxmox.ubuntu-server
+2022/06/22 15:07:21 Running builder: 
+2022/06/22 15:07:21 [INFO] (telemetry) Starting builder proxmox.ubuntu-server
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 using token auth
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 2022/06/22 15:07:21 No URLs were provided to Step Download. Continuing...
+2022/06/22 15:07:21 ui: [1;32m==> ubuntu-server.proxmox.ubuntu-server: Creating VM[0m
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: panic: runtime error: invalid memory address or nil pointer dereference
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: [signal SIGSEGV: segmentation violation code=0x1 addr=0x40 pc=0xa9b93b]
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: goroutine 130 [running]:
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/Telmate/proxmox-api-go/proxmox.(*Client).CreateQemuVm(0xc000092190, {0xc000035c08, 0x6}, 0xf97dd1)
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/Telmate/proxmox-api-go@v0.0.0-20220107223401-b9c909d83a3b/proxmox/client.go:544 +0x27b
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/Telmate/proxmox-api-go/proxmox.ConfigQemu.CreateVm({0x0, {0xc000035eb8, 0x4}, {0xf97dd1, 0x19}, {0x0, 0x0}, {0x0, 0x0}, {0x0, ...}, ...}, ...)
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/Telmate/proxmox-api-go@v0.0.0-20220107223401-b9c909d83a3b/proxmox/config_qemu.go:195 +0xfaf
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso.(*isoVMCreator).Create(_, _, {0x0, {0xc000035eb8, 0x4}, {0xf97dd1, 0x19}, {0x0, 0x0}, {0x0, ...}, ...}, ...)
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso/builder.go:64 +0xe7
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common.(*stepStartVM).Run(0xc00074e020, {0xf859a2, 0xc0002ac240}, {0x11a4758, 0xc0004323c0})
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common/step_start_vm.go:93 +0x64c
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/hashicorp/packer-plugin-sdk/multistep.(*BasicRunner).Run(0xc000616120, {0x11a4288, 0xc0002ac240}, {0x11a4758, 0xc0004323c0})
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/hashicorp/packer-plugin-sdk@v0.3.0/multistep/basic_runner.go:70 +0x2fe
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common.(*Builder).Run(0xc000396000, {0x11a4288, 0xc0002ac240}, {0x11abac8, 0xc000432390}, {0x11883e0, 0xc000088020}, {0x11a4758, 0xc0004323c0})
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common/builder.go:99 +0xdc3
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso.(*Builder).Run(0xc000299500, {0x11a4288, 0xc0002ac240}, {0x11abac8, 0xc000432390}, {0x11883e0, 0xc000088020})
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso/builder.go:54 +0x3c5
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: github.com/hashicorp/packer-plugin-sdk/rpc.(*BuilderServer).Run(0xc000030040, 0x12c270, 0xc0004e87ec)
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	github.com/hashicorp/packer-plugin-sdk@v0.3.0/rpc/builder.go:117 +0x1e3
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: reflect.Value.call({0xc000300900, 0xc000308110, 0x13}, {0xf7f7ab, 0x4}, {0xc0000f7ef8, 0x3, 0x3})
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	reflect/value.go:556 +0x845
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: reflect.Value.Call({0xc000300900, 0xc000308110, 0x0}, {0xc00058b6f8, 0x3, 0x3})
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	reflect/value.go:339 +0xc5
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: net/rpc.(*service).call(0xc000030080, 0x0, 0x0, 0xc0004e8030, 0xc000312200, 0x0, {0xdf04c0, 0xc0004e87e8, 0x0}, {0xdd45a0, ...}, ...)
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	net/rpc/server.go:377 +0x239
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: created by net/rpc.(*Server).ServeCodec
+2022/06/22 15:07:21 packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64 plugin: 	net/rpc/server.go:474 +0x405
+2022/06/22 15:07:21 [INFO] (telemetry) ending proxmox.ubuntu-server
+2022/06/22 15:07:21 /root/.config/packer/plugins/github.com/hashicorp/proxmox/packer-plugin-proxmox_v1.0.8_x5.0_linux_amd64: plugin process exited
+2022/06/22 15:07:21 ui error: [1;31mBuild 'ubuntu-server.proxmox.ubuntu-server' errored after 24 milliseconds 25 microseconds: unexpected EOF[0m
+2022/06/22 15:07:21 ui: 
+==> Wait completed after 24 milliseconds 85 microseconds
+2022/06/22 15:07:21 machine readable: error-count []string{"1"}
+2022/06/22 15:07:21 ui error: 
+==> Some builds didn't complete successfully and had errors:
+2022/06/22 15:07:21 machine readable: ubuntu-server.proxmox.ubuntu-server,error []string{"unexpected EOF"}
+2022/06/22 15:07:21 ui error: --> ubuntu-server.proxmox.ubuntu-server: unexpected EOF
+2022/06/22 15:07:21 ui: 
+==> Builds finished but no artifacts were created.
+2022/06/22 15:07:21 [INFO] (telemetry) Finalizing.
+2022/06/22 15:07:21 waiting for all plugin processes to complete...
