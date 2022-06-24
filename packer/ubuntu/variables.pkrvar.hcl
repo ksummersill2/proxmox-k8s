@@ -1,18 +1,9 @@
 proxmox_hostname    = "https://195.150.0.118:8006/api2/json"
-proxmox_username    = "packer@pam!packer"
-proxmox-token       = "a275448b-57ea-499c-ab6d-6261306641a9"
-proxmox-node-name   = "ultron"
-insecure            = false
-iso-location        = "local:iso/ubuntu-22.04-live-server-amd64.iso"
-// iso-storage-pool    = "local"
-ssh-username        = "bb8"
-vm-id               = "401"
-vm-memory = 2048
-vm-sockets = "1"
-vm-cores = "1"
-storage-pool = "local"
-
-ssh-username = "bb8"
-ssh-password = "bb02131987"
-
-iso-file = "ubuntu-22.04-live-server-amd64.iso"
+proxmox_username    = "packager@pve!packager"
+proxmox_token       = "b637d7be-df2c-487e-b06a-0add17b22de6"
+proxmox_node_name   = "ultron"
+proxmox_insecure_skip_tls_verify            = false
+iso_file        = "local:iso/ubuntu-22.04-live-server-amd64.iso"
+vm_id               = "401"
+// iso_file = "ubuntu-22.04-live-server-amd64.iso"
+user_password = "Reggie11!"

@@ -4,7 +4,7 @@
 variable "proxmox_hostname" {
   description = "Proxmox host address (e.g. https://192.168.1.1:8006)"
   type = string
-  default = "https://195.150.0.118:8006/api2/json"
+  default = ""
 }
 
 variable "proxmox_username" {
@@ -12,7 +12,7 @@ variable "proxmox_username" {
   type = string
 }
 
-variable "proxmox_password" {
+variable "proxmox_token" {
   description = "Proxmox password"
   type = string
 }

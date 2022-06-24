@@ -1,0 +1,99 @@
+2022/06/23 22:15:43 [INFO] Packer version: 1.8.1 [go1.17.8 windows amd64]
+2022/06/23 22:15:43 [TRACE] discovering plugins in C:\ProgramData\chocolatey\lib\packer\tools
+2022/06/23 22:15:43 [TRACE] discovering plugins in C:\Users\ksumm\AppData\Roaming\packer.d\plugins
+2022/06/23 22:15:43 [TRACE] discovering plugins in .
+2022/06/23 22:15:43 [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2022/06/23 22:15:43 [INFO] PACKER_CONFIG env var set; attempting to open config file: C:\Users\ksumm\AppData\Roaming\packer.config
+2022/06/23 22:15:43 [WARN] Config file doesn't exist: C:\Users\ksumm\AppData\Roaming\packer.config
+2022/06/23 22:15:43 [INFO] Setting cache directory: C:\development\proxmox\proxmox-k8s\packer\ubuntu\packer_cache
+e: cannot determine if process is in background: Process background check error: not implemented yet
+2022/06/23 22:15:43 [TRACE] validateValue: not active for vm_storage_pool, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for iso_storage_pool, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for pool, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for time_zone, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for proxmox_username, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for vm_name, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for vm_cores, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for iso_checksum, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for iso_file, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for username, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for proxmox_token, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for proxmox_node_name, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for vm_memory, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for vm_sockets, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for user_password, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for proxmox_insecure_skip_tls_verify, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for template_description, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for iso_url, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for proxmox_hostname, so skipping
+2022/06/23 22:15:43 [TRACE] validateValue: not active for vm_id, so skipping
+2022/06/23 22:15:43 [TRACE] Starting internal plugin packer-builder-proxmox-iso
+2022/06/23 22:15:43 Starting plugin: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe []string{"C:\\ProgramData\\chocolatey\\lib\\packer\\tools\\packer.exe", "plugin", "packer-builder-proxmox-iso"}
+2022/06/23 22:15:43 Waiting for RPC address for: C:\ProgramData\chocolatey\lib\packer\tools\packer.exe
+2022/06/23 22:15:43 packer.exe plugin: [INFO] Packer version: 1.8.1 [go1.17.8 windows amd64]
+2022/06/23 22:15:43 packer.exe plugin: [INFO] PACKER_CONFIG env var not set; checking the default config file path
+2022/06/23 22:15:43 packer.exe plugin: [INFO] PACKER_CONFIG env var set; attempting to open config file: C:\Users\ksumm\AppData\Roaming\packer.config
+2022/06/23 22:15:43 packer.exe plugin: [WARN] Config file doesn't exist: C:\Users\ksumm\AppData\Roaming\packer.config
+2022/06/23 22:15:43 packer.exe plugin: [INFO] Setting cache directory: C:\development\proxmox\proxmox-k8s\packer\ubuntu\packer_cache
+2022/06/23 22:15:43 packer.exe plugin: args: []string{"packer-builder-proxmox-iso"}
+2022/06/23 22:15:43 packer.exe plugin: Plugin port range: [10000,25000]
+2022/06/23 22:15:43 packer.exe plugin: Plugin address: tcp 127.0.0.1:10000
+2022/06/23 22:15:43 packer.exe plugin: Waiting for connection...
+2022/06/23 22:15:43 Received tcp RPC address for C:\ProgramData\chocolatey\lib\packer\tools\packer.exe: addr is 127.0.0.1:10000
+2022/06/23 22:15:43 packer.exe plugin: Serving a plugin connection...
+2022/06/23 22:15:43 packer.exe plugin: CPU type not set, using default 'kvm64'
+2022/06/23 22:15:43 packer.exe plugin: SCSI controller not set, using default 'lsi'
+2022/06/23 22:15:43 ui: test.proxmox-iso.virtual: output will be in this color.
+2022/06/23 22:15:43 ui: 
+2022/06/23 22:15:43 Build debug mode: false
+2022/06/23 22:15:43 Force build: false
+2022/06/23 22:15:43 On error: 
+2022/06/23 22:15:43 Waiting on builds to complete...
+2022/06/23 22:15:43 Starting build run: test.proxmox-iso.virtual
+2022/06/23 22:15:43 Running builder: 
+2022/06/23 22:15:43 [INFO] (telemetry) Starting builder proxmox-iso.virtual
+2022/06/23 22:15:43 packer.exe plugin: using token auth
+2022/06/23 22:15:43 packer.exe plugin: No URLs were provided to Step Download. Continuing...
+2022/06/23 22:15:43 ui: ==> test.proxmox-iso.virtual: Creating VM
+2022/06/23 22:15:43 packer.exe plugin: panic: runtime error: invalid memory address or nil pointer dereference
+2022/06/23 22:15:43 packer.exe plugin: [signal 0xc0000005 code=0x0 addr=0x40 pc=0x367cddb]
+2022/06/23 22:15:43 packer.exe plugin: 
+2022/06/23 22:15:43 packer.exe plugin: goroutine 24 [running]:
+2022/06/23 22:15:43 packer.exe plugin: github.com/Telmate/proxmox-api-go/proxmox.(*Client).CreateQemuVm(0xc00080c4b0, {0xc000206868, 0x6}, 0x5b9868e)
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/!telmate/proxmox-api-go@v0.0.0-20220107223401-b9c909d83a3b/proxmox/client.go:544 +0x27b
+2022/06/23 22:15:43 packer.exe plugin: github.com/Telmate/proxmox-api-go/proxmox.ConfigQemu.CreateVm({0x0, {0xc000107700, 0x19}, {0x5b9868e, 0x19}, {0x0, 0x0}, {0x0, 0x0}, {0x0, ...}, ...}, ...)
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/!telmate/proxmox-api-go@v0.0.0-20220107223401-b9c909d83a3b/proxmox/config_qemu.go:195 +0xfaf
+2022/06/23 22:15:43 packer.exe plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso.(*isoVMCreator).Create(_, _, {0x0, {0xc000107700, 0x19}, {0x5b9868e, 0x19}, {0x0, 0x0}, {0x0, ...}, ...}, ...)
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.7/builder/proxmox/iso/builder.go:64 +0xe7
+2022/06/23 22:15:43 packer.exe plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common.(*stepStartVM).Run(0xc0003b1d40, {0x5b47c8a, 0xc000f45e00}, {0x638e318, 0xc00003c2d0})
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.7/builder/proxmox/common/step_start_vm.go:93 +0x64c
+2022/06/23 22:15:43 packer.exe plugin: github.com/hashicorp/packer-plugin-sdk/multistep.(*BasicRunner).Run(0xc00003c390, {0x638d5c0, 0xc000f45e00}, {0x638e318, 0xc00003c2d0})
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-sdk@v0.2.13/multistep/basic_runner.go:70 +0x2fe
+2022/06/23 22:15:43 packer.exe plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/common.(*Builder).Run(0xc000d86000, {0x638d5c0, 0xc000f45e00}, {0x6399e00, 0xc00003c2a0}, {0x62faca0, 0xc000706a20}, {0x638e318, 0xc00003c2d0})
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.7/builder/proxmox/common/builder.go:99 +0xdc3
+2022/06/23 22:15:43 packer.exe plugin: github.com/hashicorp/packer-plugin-proxmox/builder/proxmox/iso.(*Builder).Run(0xc000f0bc00, {0x638d5c0, 0xc000f45e00}, {0x6399e00, 0xc00003c2a0}, {0x62faca0, 0xc000706a20})
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-proxmox@v1.0.7/builder/proxmox/iso/builder.go:54 +0x3c5
+2022/06/23 22:15:43 packer.exe plugin: github.com/hashicorp/packer-plugin-sdk/rpc.(*BuilderServer).Run(0xc0004c25c0, 0x3b4030, 0xc0003b4010)
+2022/06/23 22:15:43 packer.exe plugin: 	/home/runner/go/pkg/mod/github.com/hashicorp/packer-plugin-sdk@v0.2.13/rpc/builder.go:117 +0x1e3
+2022/06/23 22:15:43 packer.exe plugin: reflect.Value.call({0xc000512cc0, 0xc0006ac2d0, 0xc000be7e10}, {0x5b3c59c, 0x4}, {0xc000be7ef8, 0x3, 0xc000be7e80})
+2022/06/23 22:15:43 packer.exe plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/reflect/value.go:556 +0x845
+2022/06/23 22:15:43 packer.exe plugin: reflect.Value.Call({0xc000512cc0, 0xc0006ac2d0, 0xc0000aa800}, {0xc000be7ef8, 0x3, 0x3})
+2022/06/23 22:15:43 packer.exe plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/reflect/value.go:339 +0xc5
+2022/06/23 22:15:43 packer.exe plugin: net/rpc.(*service).call(0xc0004c2600, 0xc00015dee6, 0x0, 0xc00059cb60, 0xc000831f80, 0xe52a45, {0x4a430e0, 0xc0003b400c, 0xe529c6}, {0x4910140, ...}, ...)
+2022/06/23 22:15:43 packer.exe plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/net/rpc/server.go:377 +0x239
+2022/06/23 22:15:43 packer.exe plugin: created by net/rpc.(*Server).ServeCodec
+2022/06/23 22:15:43 packer.exe plugin: 	/opt/hostedtoolcache/go/1.17.8/x64/src/net/rpc/server.go:474 +0x405
+2022/06/23 22:15:43 [INFO] (telemetry) ending proxmox-iso.virtual
+2022/06/23 22:15:43 ui error: Build 'test.proxmox-iso.virtual' errored after 69 milliseconds 187 microseconds: unexpected EOF
+2022/06/23 22:15:43 ui: 
+==> Wait completed after 69 milliseconds 187 microseconds
+2022/06/23 22:15:43 machine readable: error-count []string{"1"}
+2022/06/23 22:15:43 ui error: 
+==> Some builds didn't complete successfully and had errors:
+2022/06/23 22:15:43 machine readable: test.proxmox-iso.virtual,error []string{"unexpected EOF"}
+2022/06/23 22:15:43 ui error: --> test.proxmox-iso.virtual: unexpected EOF
+2022/06/23 22:15:43 ui: 
+==> Builds finished but no artifacts were created.
+2022/06/23 22:15:43 [INFO] (telemetry) Finalizing.
+2022/06/23 22:15:43 C:\ProgramData\chocolatey\lib\packer\tools\packer.exe: plugin process exited
+2022/06/23 22:15:44 waiting for all plugin processes to complete...
