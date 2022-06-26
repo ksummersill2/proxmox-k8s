@@ -12,7 +12,7 @@ variable "proxmox_username" {
   type = string
 }
 
-variable "proxmox_token" {
+variable "proxmox_password" {
   description = "Proxmox password"
   type = string
 }
