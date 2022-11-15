@@ -16,37 +16,45 @@ source "proxmox" "okd_master" {
   // }
 
   // qemu_agent            = true
-  // scsi_controller       = "virtio-scsi-pci"
+  scsi_controller       = "virtio-scsi-pci"
 
-  // disks {
-  //   type              = "scsi"
-  //   disk_size         = "30G"
-  //   storage_pool      = var.vm_storage_pool
-  //   storage_pool_type = "lvm-thin"
-  //   format            = "raw"
-  // }
+  disks {
+    type              = "scsi" # Bus/Device
+    disk_size         = "30G" # Disk Size (GiB)
+    storage_pool      = var.vm_storage_pool # Storage Name
+    storage_pool_type = "lvm" # Storage Type
+    format            = "raw" # Format
+  }
 
   ssh_username          = var.username
   ssh_password          = var.user_password
-  ssh_timeout           = "35m"
+  ssh_timeout           = "10m"
+  ssh_pty               = true
+  ssh_handshake_attempts= "20"
 
   iso_file              = var.iso_file
   // iso_url               = var.iso_url
   // iso_storage_pool      = var.iso_storage_pool
   // iso_checksum          = var.iso_checksum
 
-  // onboot                = true
+  onboot                = true
 
-  // template_name         = var.vm_name
-  // template_description  = var.template_description
-  // unmount_iso           = true
+  template_name         = var.vm_name
+  template_description  = var.template_description
+  unmount_iso           = true
 
-  // http_directory        = "./http"
-  // boot_wait             = "10s"
+  http_directory        = "subiquity/http"
+  cd_files              = ["./subiquity/http/meta-data", "./subiquity/http/user-data"]
+  boot_wait             = "5s"
+  boot_command          = [
+        "<enter><enter><f6><esc><wait>",
+        "autoinstall ds=nocloud-net;seedfrom=http://{{ .HTTPIP }}:{{ .HTTPPort }}/",
+        "<enter><wait>"
+  ]
   // boot_command = [
   //   "<esc><wait>",
   //   "<esc><wait>",
-  //   "<enter><wait>"
+  //   "<enter><wait>",
   //   "/install/vmlinuz initrd=/install/initrd.gz",
   //   " auto=true priority=critical interface=auto",
   //   " netcfg/dhcp_timeout=120",
@@ -68,22 +76,22 @@ build {
     "source.proxmox.virtual"
   ]
 
-  // provisioner "shell" {
-  //   pause_before = "20s"
-  //   environment_vars = [
-  //     "DEBIAN_FRONTEND=noninteractive",
-  //   ]
-  //   inline = [
-  //     "sleep 30",
-  //     "sudo apt-get update",
-  //     "sudo apt-get -y upgrade",
-  //     "sudo apt-get -y dist-upgrade",
-  //     "sudo apt-get -y install linux-generic linux-headers-generic linux-image-generic",
-  //     "sudo apt-get -y install wget curl",
+  provisioner "shell" {
+    pause_before = "20s"
+    environment_vars = [
+      "DEBIAN_FRONTEND=noninteractive",
+    ]
+    inline = [
+      "sleep 30",
+      "sudo apt-get update",
+      // "sudo apt-get -y upgrade",
+      // "sudo apt-get -y dist-upgrade",
+      // "sudo apt-get -y install linux-generic linux-headers-generic linux-image-generic",
+      // "sudo apt-get -y install wget curl",
 
-  //     # DHCP Server assigns same IP address if machine-id is preserved, new machine-id will be generated on first boot
-  //     "sudo truncate -s 0 /etc/machine-id",
-  //     "exit 0",
-  //   ]
-  // }
+      // # DHCP Server assigns same IP address if machine-id is preserved, new machine-id will be generated on first boot
+      // "sudo truncate -s 0 /etc/machine-id",
+      // "exit 0",
+    ]
+  }
 }
