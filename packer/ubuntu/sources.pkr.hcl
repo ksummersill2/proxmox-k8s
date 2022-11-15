@@ -1,16 +1,15 @@
-source "proxmox-iso" "virtual" {
+source "proxmox" "okd_master" {
   vm_name                   = var.vm_name
   proxmox_url               = "${var.proxmox_hostname}"
   insecure_skip_tls_verify 	= var.proxmox_insecure_skip_tls_verify
   username                  = var.proxmox_username
-  token                     = var.proxmox_token
+  token                     = var.proxmox_password
   node                      = var.proxmox_node_name
   vm_id                     = var.vm_id
   memory                    = var.vm_memory
   sockets                   = var.vm_sockets
   cores                     = var.vm_cores
   os                        = "other"
-
   // network_adapters {
   //   model   = "virtio"
   //   bridge  = "vmbr0"
@@ -66,7 +65,7 @@ source "proxmox-iso" "virtual" {
 build {
   name = "test"
   sources = [
-    "source.proxmox-iso.virtual"
+    "source.proxmox.virtual"
   ]
 
   // provisioner "shell" {

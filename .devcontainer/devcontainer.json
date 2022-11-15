@@ -1,8 +1,7 @@
 {
     "name": "terraform-c1",
-    "image": "hashicorp/packer"
-    //     "build": {
-    //         "dockerfile": "terraform-c1",
-    //         "context": "."
-    //     }
+    "build": {
+        "dockerfile": "terraform-c1",
+        "context": "."
+    }
 }
