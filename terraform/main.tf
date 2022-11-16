@@ -1,25 +1,29 @@
 resource "tls_private_key" "okd_machine_keys" {
-  for_each  = local.machines
   algorithm = "RSA"
+  rsa_bits  = 4096
 }
 
 resource "proxmox_vm_qemu" "okd_machines" {
   depends_on = [
     tls_private_key.okd_machine_keys
   ]
-  for_each    = local.machines
-  name        = each.value.name
-  desc        = each.value.description
-  target_node = each.value.target_node
-  os_type     = each.value.os_type
-  full_clone  = each.value.full_clone
-  clone       = each.value.template
-  memory      = each.value.memory
-  sockets     = each.value.socket
-  cores       = each.value.cores
-  # iso               = "local:iso/Rocky-9.0-20220808.0-x86_64-dvd.iso"
-  ssh_user = each.value.ssh_user
-  sshkeys  = tls_private_key.okd_machine_keys[each.key].public_key_openssh
+  for_each         = local.machines
+  name             = each.value.name
+  qemu_os          = "other"
+  desc             = each.value.description
+  target_node      = each.value.target_node
+  os_type          = each.value.os_type
+  full_clone       = each.value.full_clone
+  clone            = each.value.template
+  memory           = each.value.memory
+  sockets          = each.value.socket
+  cores            = each.value.cores
+  ssh_user         = each.value.ssh_user
+  sshkeys          = tls_private_key.okd_machine_keys.public_key_openssh
+  ciuser           = each.value.ssh_user
+  ipconfig0        = "ip=10.0.125.31/32,gw=10.0.125.1"
+  cipassword       = "Reggie11!"
+  automatic_reboot = true
 
   disk {
     storage = "local-lvm"
@@ -28,8 +32,12 @@ resource "proxmox_vm_qemu" "okd_machines" {
   }
 
   network {
-    bridge = "vmbr0"
-    model  = "virtio"
+    bridge  = "vmbr0"
+    model   = "virtio"
+    mtu     = 0
+    macaddr = "7A:63:04:A3:50:94"
+    queues  = 0
+    rate    = 0
   }
 
   provisioner "remote-exec" {
@@ -50,8 +58,9 @@ resource "proxmox_vm_qemu" "okd_machines" {
     connection {
       type        = "ssh"
       user        = each.value.ssh_user
-      private_key = tls_private_key.okd_machine_keys[each.key].private_key_pem
+      private_key = tls_private_key.okd_machine_keys.private_key_pem
       host        = each.value.ip_address
+      timeout     = "5m"
     }
   }
 }

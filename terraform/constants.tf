@@ -12,7 +12,7 @@ locals {
         socket      = 1,
         memory      = 4096,
         storage     = "150G",
-        ip_address  = "10.0.125.101"
+        ip_address  = "10.0.125.31"
         gateway     = "10.0.125.1"
         description = "Bastion Node for the OKD Cluster"
         ssh_user    = "okdadmin"
