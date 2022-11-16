@@ -1,0 +1,10 @@
+- hosts: okd-services
+  remote_user: okdadmin
+  gather_facts: false
+  vars:
+    ansible_ssh_private_key_file: "/workspaces/proxmox-k8s/ansible/keys/key.pem"
+    ansible_user: okdadmin
+    ansible_become_pass: Reggie11!
+    ANSIBLE_HOST_KEY_CHECKING: false
+  roles:
+    - okd-service-node

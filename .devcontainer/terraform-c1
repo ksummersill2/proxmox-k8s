@@ -15,5 +15,23 @@ RUN wget https://github.com/tenable/terrascan/releases/download/v1.15.1/terrasca
 # Installing Kics
 RUN curl -sfL 'https://raw.githubusercontent.com/Checkmarx/kics/master/install.sh' | ash
 
+# Install Ansible
+RUN apk add ansible
+RUN ansible-galaxy collection install community.general ansible.posix
+RUN python3 -m ensurepip --upgrade
+RUN python3 -m pip install requests
+RUN python3 -m pip install --upgrade pip
+
+# Setup temp directory for ansible with permissions
+ENV ANSIBLE_LOCAL_TEMP=/tmp/ansible
+ENV ANSIBLE_SSH_CONTROL_PATH_DIR=/tmp/ansible/cp
+
+# Make directories prior to running in Cloud One to remove permission issues. 
+RUN mkdir -p /tmp/ansible && mkdir -p /.ansible/galaxy_cache && mkdir -p /opt/ansible/inventory && mkdir -p /tmp/software
+
+COPY ansible.cfg /tmp/ansible/ansible.cfg
+
+RUN apk add -qU openssh && mkdir /root/.ssh
+
 # Keep Alpine Running
 ENTRYPOINT ["tail","-f","/dev/null"]

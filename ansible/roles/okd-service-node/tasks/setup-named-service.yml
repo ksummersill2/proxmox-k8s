@@ -1,0 +1,13 @@
+---
+- name: Enable Named service
+  become: true
+  ansible.builtin.systemd:
+    name: named
+    enabled: yes
+    masked: no
+
+- name: Make sure Named service is running
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    name: named

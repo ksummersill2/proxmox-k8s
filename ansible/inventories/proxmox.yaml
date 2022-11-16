@@ -1,0 +1,9 @@
+plugin: community.general.proxmox
+user: yoda@pve
+password: Reggie11!
+url: https://10.0.125.81:8006
+validate_certs: no
+want_facts: true
+want_proxmox_nodes_ansible_host: false
+compose:
+  host: proxmox_ipconfig0.ip

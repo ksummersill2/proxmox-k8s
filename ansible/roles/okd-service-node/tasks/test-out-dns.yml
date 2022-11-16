@@ -1,0 +1,20 @@
+---
+- name: Test out DNS Path to DSN Server
+  become: true
+  ansible.builtin.shell: |
+    dig okd.local
+  register: okd_local
+
+- name: validate dns check 1
+  debug:
+    msg: "{{ okd_local }}"
+
+- name: Test out IP Address for the DNS Server
+  become: true
+  ansible.builtin.shell: |
+    dig -x 10.0.125.210
+  register: okd_ip_address
+
+- name: validate dns check 2
+  debug:
+    msg: "{{ okd_ip_address }}"

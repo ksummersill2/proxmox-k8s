@@ -1,0 +1,31 @@
+- name: Install required software for ha-proxy
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - haproxy
+
+- name: Move HA Proxy Configuration
+  become: true
+  ansible.builtin.template:
+    src: "./templates/haproxy.cfg.j2"
+    dest: "/etc/haproxy/haproxy.cfg"
+
+- name: Setup the HA Proxy Connect Any to 1
+  become: true
+  ansible.builtin.shell: |
+    setsebool -P haproxy_connect_any 1
+
+- name: Enable HA-Proxy service
+  become: true
+  ansible.builtin.systemd:
+    name: haproxy
+    enabled: yes
+    masked: no
+
+- name: Make sure the HA Proxy is started
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    name: haproxy

@@ -1,0 +1,43 @@
+---
+- name: Install required software for ha-proxy
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - httpd
+
+- name: Setup the HTTPD Conf File
+  become: true
+  ansible.builtin.shell: |
+    sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
+    setsebool -P httpd_read_user_content 1
+
+- name: Enable HTTPD service
+  become: true
+  ansible.builtin.systemd:
+    name: httpd
+    enabled: yes
+    masked: no
+
+- name: Make sure the HTTPD is started
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    name: httpd
+
+- name: Add Firewall Rules for HTTPD Server
+  become: true
+  ansible.builtin.shell: |
+    firewall-cmd --permanent --add-port=8080/tcp
+    firewall-cmd --reload
+
+- name: Setup the HTTPD Conf File
+  become: true
+  ansible.builtin.shell: |
+    curl localhost:8080
+  register: curl_test
+
+- name: Validate Curl Output for HTTPD Server
+  debug:
+    msg: "{{ curl_test }}"

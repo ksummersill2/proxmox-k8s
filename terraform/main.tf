@@ -21,7 +21,7 @@ resource "proxmox_vm_qemu" "okd_machines" {
   ssh_user         = each.value.ssh_user
   sshkeys          = tls_private_key.okd_machine_keys.public_key_openssh
   ciuser           = each.value.ssh_user
-  ipconfig0        = "ip=10.0.125.31/32,gw=10.0.125.1"
+  ipconfig0        = "ip=10.0.125.210/32,gw=10.0.125.1"
   cipassword       = "Reggie11!"
   automatic_reboot = true
 
