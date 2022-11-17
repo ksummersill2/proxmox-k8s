@@ -1,0 +1,59 @@
+---
+- name: Download 4.11 OKD Install
+  become: true
+  ansible.builtin.get_url:
+    url: https://github.com/okd-project/okd/releases/download/4.11.0-0.okd-2022-11-05-030711/openshift-install-linux-4.11.0-0.okd-2022-11-05-030711.tar.gz
+    dest: /home/okdadmin/
+
+- name: Download 4.11 OKD Client
+  become: true
+  ansible.builtin.get_url:
+    url: https://github.com/okd-project/okd/releases/download/4.11.0-0.okd-2022-11-05-030711/openshift-client-linux-4.11.0-0.okd-2022-11-05-030711.tar.gz
+    dest: /home/okdadmin/
+
+- name: Extract 4.11 OKD Install
+  become: true
+  ansible.builtin.unarchive:
+    src: /home/okdadmin/openshift-install-linux-4.11.0-0.okd-2022-11-05-030711.tar.gz
+    remote_src: true
+    dest: /home/okdadmin/
+
+- name: Extract 4.11 OKD Client
+  become: true
+  ansible.builtin.unarchive:
+    src: /home/okdadmin/openshift-client-linux-4.11.0-0.okd-2022-11-05-030711.tar.gz
+    remote_src: true
+    dest: /home/okdadmin/
+
+- name: Move kubectl to local bin
+  become: true
+  ansible.builtin.copy:
+    src: /home/okdadmin/kubectl
+    remote_src: true
+    dest: /usr/local/bin/
+    owner: okdadmin
+
+- name: Move oc to local bin
+  become: true
+  ansible.builtin.copy:
+    src: /home/okdadmin/oc
+    remote_src: true
+    dest: /usr/local/bin/
+    owner: okdadmin
+    mode: 'a+x'
+
+- name: Move openshift-install to local bin
+  become: true
+  ansible.builtin.copy:
+    src: /home/okdadmin/openshift-install
+    remote_src: true
+    dest: /usr/local/bin/
+    owner: okdadmin
+    mode: 'a+x'
+
+- name: Check that Versions of the Binaries
+  become: false
+  ansible.builtin.shell: |
+    oc version
+    kubectl version
+    openshift-install

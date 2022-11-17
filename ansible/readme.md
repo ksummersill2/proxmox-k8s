@@ -10,3 +10,6 @@ chmod 600 keys/key.pem
 ```
 
 # Running the Plabook
+```
+ansible-playbook -i inventories/proxmox.yml create-okd-service-node.yml
+```

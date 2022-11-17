@@ -2,7 +2,7 @@
 - name: Validate SSH Known Hosts
   connection: local
   become: false
-  shell: |
+  ansible.builtin.shell: |
     ssh-keygen -F 10.0.125.210 || 
       ssh-keyscan -H 10.0.125.210 >> /root/.ssh/known_hosts
   register: known_hosts_script

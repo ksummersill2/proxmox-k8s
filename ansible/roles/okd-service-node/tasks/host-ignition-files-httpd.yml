@@ -1,0 +1,44 @@
+---
+- name: Create OKD directory
+  become: true
+  ansible.builtin.file:
+    path: /var/www/html/okd4/
+    state: directory
+
+
+# TODO: Need ot validate the permission so that curl command can read access. 
+- name: Copy the Ignition Files over to WWW
+  become: true
+  ansible.builtin.copy:
+    src: /home/okdadmin/install_dir/
+    remote_src: true
+    dest: /var/www/html/okd4/
+    mode: 'a+rwx'
+
+- name: Validate Endpoint
+  become: true
+  ansible.builtin.shell: |
+    curl localhost:8080/okd4/metadata.json
+  register: ignition_endpoint
+
+- name: Displaying Endpoint for Ignition Files
+  debug:
+    msg: "{{ ignition_endpoint }}"
+
+- name: Download FedoraCoreOS Bare Metal Raw
+  become: true
+  ansible.builtin.get_url:
+    url: https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20221030.3.0/x86_64/fedora-coreos-36.20221030.3.0-metal.x86_64.raw.xz
+    dest: /var/www/html/okd4/fcos.raw.xz
+    mode: 'a+rwx'
+
+- name: Download FedoraCoreOS Bare Metal Raw Signature
+  become: true
+  ansible.builtin.get_url:
+    url: https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/36.20221030.3.0/x86_64/fedora-coreos-36.20221030.3.0-metal.x86_64.raw.xz.sig
+    dest: /var/www/html/okd4/fcos.raw.xz.sig
+    mode: 'a+rwx'
+
+# Time ot Setup the Bootstrap Node, Startup FedoraCoreOS and hit Tab 
+# add the following:
+# coreos.inst.install_dev=/dev/sda coreos.inst.image_url=http://10.0.125.210:8080/okd4/fcos.raw.xz coreos.inst.ignition_url=http://10.0.125.210:8080/okd4/bootstrap.ign

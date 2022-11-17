@@ -1,0 +1,39 @@
+---
+- name: Create Install Directory for OpenShift
+  become: true
+  ansible.builtin.file:
+    path: /home/okdadmin/install_dir
+    state: directory
+    mode: '0755'
+    owner: okdadmin
+
+- name: Copy over the Install Configuration
+  become: true
+  ansible.builtin.template:
+    src: "./templates/install-config.yaml.j2"
+    dest: "/home/okdadmin/install_dir/install-config.yaml"
+    mode: '0755'
+
+
+## Need to Resolve this Creation of the Manifests
+# - name: Create the OpenShift Install Manifests
+#   become: true
+#   ansible.builtin.shell: |
+#     openshift-install create manifests --dir=/home/okdadmin/install_dir/
+#   register: okd_installer_results
+
+# - name: Verify OpenShift Installer Results
+#   become: true
+#   debug:
+#     msg: "{{ okd_installer_results }}"
+
+- name: Modify the Scheduler Manifest
+  become: true
+  ansible.builtin.shell: |
+    sed -i 's/mastersSchedulable: true/mastersSchedulable: False/' /home/okdadmin/install_dir/manifests/cluster-scheduler-02-config.yml
+
+# Needs to be fixed
+# - name: Create Init Configurations
+#   become: true
+#   ansible.builtin.shell: |
+#     openshift-install create ignition-configs --dir=/home/okdadmin/install_dir/

@@ -8,10 +8,8 @@ global
     user        haproxy
     group       haproxy
     daemon
-
     # turn on stats unix socket
     stats socket /var/lib/haproxy/stats
-
 #---------------------------------------------------------------------
 # common defaults that all the 'listen' and 'backend' sections will
 # use if not designated in their block
@@ -34,12 +32,14 @@ defaults
     timeout check           10s
     maxconn                 20000
 
+# Enable HAProxy stats
 listen stats
     bind :9000
     mode http
     stats enable
     stats uri /
 
+# Kube API Server
 frontend okd4_k8s_api_fe
     bind :6443
     default_backend okd4_k8s_api_be
