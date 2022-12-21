@@ -1,21 +1,21 @@
 ---
 # - name: Install Software
 #   import_tasks: setup-okd-service-node.yml
-- name: "Copy files and make directories on service node"
-  import_tasks: copy-required-files-over.yml
-- name: Setup the Named Service
-  import_tasks: setup-named-service.yml
-- name: Adding Firewall Rules to Node Service
-  import_tasks: add-firewall-rules.yml
-- name: Validate DSN Checks for the DNS Server
-  import_tasks: test-out-dns.yml
+# - name: "Copy files and make directories on service node"
+#   import_tasks: copy-required-files-over.yml
+# - name: Setup the Named Service
+#   import_tasks: setup-named-service.yml
+# - name: Adding Firewall Rules to Node Service
+#   import_tasks: add-firewall-rules.yml
+# - name: Validate DSN Checks for the DNS Server
+#   import_tasks: test-out-dns.yml
 # - name: Install and Configuration the HA Proxy
 #   import_tasks: install-and-configure-ha-proxy.yml
 # - name: Install HTTPD Server on Service node
-#   import_tasks: setup-httpd-server.yml
-# - name: Setup for OKD
-#   import_tasks: setup-okd-software.yml
-# - name: Setup OKD Installer
-#   import_tasks: setup-openshift-installer.yml
-# - name: Setup Hosting Ignition Files
-#   import_tasks: host-ignition-files-httpd.yml
+  # import_tasks: setup-httpd-server.yml
+- name: Setup for OKD
+  import_tasks: setup-okd-software.yml
+- name: Setup OKD Installer
+  import_tasks: setup-openshift-installer.yml
+- name: Setup Hosting Ignition Files
+  import_tasks: host-ignition-files-httpd.yml
