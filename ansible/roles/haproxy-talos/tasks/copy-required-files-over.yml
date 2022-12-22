@@ -1,0 +1,32 @@
+---
+- name: Move the named.conf file
+  become: true
+  ansible.builtin.template:
+    src: ./templates/named.conf.j2
+    dest: "/etc/named.conf"
+
+- name: Move the named.conf.local file
+  become: true
+  ansible.builtin.template:
+    src: ./templates/named.conf.local.j2
+    dest: "/etc/named/named.conf.local"
+
+- name: Create directories for Zones
+  become: true
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /etc/named/zones
+
+- name: Move the DB files
+  become: true
+  ansible.builtin.template:
+    src: "./templates/db.10.0.125.210.j2"
+    dest: "/etc/named/zones/db.10.0.125.210"
+
+- name: Move the DB files
+  become: true
+  ansible.builtin.template:
+    src: "./templates/db.okd.local.j2"
+    dest: "/etc/named/zones/db.okd.local"

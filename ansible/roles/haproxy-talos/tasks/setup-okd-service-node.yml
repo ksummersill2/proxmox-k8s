@@ -1,0 +1,20 @@
+---
+- name: Validate SSH Known Hosts
+  connection: local
+  become: false
+  ansible.builtin.shell: |
+    ssh-keygen -F 10.0.125.210 || 
+      ssh-keyscan -H 10.0.125.210 >> /root/.ssh/known_hosts
+  register: known_hosts_script
+  changed_when: "'found' not in known_hosts_script.stdout"
+
+- name: Install required software
+  become: true
+  ansible.builtin.dnf:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - epel-release
+    - bind
+    - bind-utils
+    - firewalld

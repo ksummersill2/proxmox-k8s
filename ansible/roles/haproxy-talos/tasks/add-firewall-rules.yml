@@ -1,0 +1,30 @@
+---
+- name: Enable firewalld service
+  become: true
+  ansible.builtin.systemd:
+    name: firewalld
+    enabled: yes
+    masked: no
+
+- name: Make sure firewalld service is running
+  become: true
+  ansible.builtin.systemd:
+    state: started
+    name: firewalld
+
+- name: Add Firewall Rules
+  become: true
+  ansible.builtin.shell: |
+    firewall-cmd --zone=public --permanent --add-port=3389/tcp
+    firewall-cmd --permanent --add-port=53/udp
+    firewall-cmd --permanent --add-port=6443/tcp
+    firewall-cmd --permanent --add-port=22623/tcp
+    firewall-cmd --permanent --add-service=http
+    firewall-cmd --permanent --add-service=https
+    sudo firewall-cmd --reload
+
+- name: Restart the Network Manager
+  become: true
+  ansible.builtin.systemd:
+    state: restarted
+    name: NetworkManager
