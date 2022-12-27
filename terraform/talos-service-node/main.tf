@@ -22,22 +22,24 @@ resource "proxmox_vm_qemu" "okd_machines" {
   sshkeys          = tls_private_key.okd_machine_keys.public_key_openssh
   ciuser           = each.value.ssh_user
   ipconfig0        = "ip=${each.value.ip_address}/32,gw=${each.value.gateway}"
-  cipassword       = "Reggie11!"
-  automatic_reboot = true
+  cipassword       = each.value.cloud_init_pass
+  automatic_reboot = each.value.automatic_reboot
+  nameserver       = each.value.dns_servers
 
   disk {
-    storage = "local-lvm"
-    type    = "virtio"
+    storage = each.value.storage_dev
+    type    = each.value.disk_type
     size    = each.value.storage
   }
 
   network {
-    bridge  = "vmbr0"
-    model   = "virtio"
-    mtu     = 0
-    macaddr = "7A:63:04:A3:50:20"
-    queues  = 0
-    rate    = 0
+    bridge   = each.value.network_bridge_type
+    model    = each.value.network_model
+    mtu      = 0
+    macaddr  = each.value.mac_address
+    queues   = 0
+    rate     = 0
+    firewall = each.value.network_firewall
   }
 
   # provisioner "remote-exec" {
